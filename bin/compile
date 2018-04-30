@@ -40,8 +40,10 @@ fi
 
 chmod 777 /tmp
 
-dotnet publish $PROJECT_FILE --output ${BUILD_DIR}/heroku_output --configuration Release --runtime linux-x64
+dotnet publish $PROJECT_FILE --output ${BUILD_DIR}/heroku_output --configuration Release --runtime linux-x64 --self-contained
+
+dotnet_cleanup $BUILD_DIR
 
 cat << EOT >> ${BUILD_DIR}/Procfile
-worker: cd \$HOME/heroku_output && dotnet "./${PROJECT_NAME}.dll"
+worker: cd \$HOME/heroku_output && chmod +x ${PROJECT_NAME} && ./${PROJECT_NAME}
 EOT
