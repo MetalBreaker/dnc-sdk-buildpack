@@ -38,8 +38,7 @@ if [ -z ${PROJECT_NAME:-} ]; then
 	PROJECT_NAME=$(basename ${PROJECT_FILE%.*})
 fi
 
-mkdir tmp
-chmod 777 tmp/
+chmod 777 /tmp
 
 dotnet publish $PROJECT_FILE --output ${BUILD_DIR}/heroku_output --configuration Release --runtime linux-x64
 
