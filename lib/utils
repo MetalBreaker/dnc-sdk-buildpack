@@ -3,8 +3,8 @@
 function install_dotnet() {
   local BUILD_DIR="$1"
   local CACHE_DIR="$2"
-  local ZIP_NAME="dotnet-2.1.105.tar.gz"
-  local LINK="https://download.microsoft.com/download/2/E/C/2EC018A0-A0FC-40A2-849D-AA692F68349E/dotnet-sdk-2.1.105-linux-x64.tar.gz"
+  local ZIP_NAME="dotnet-2.1.302.tar.gz"
+  local LINK="https://download.microsoft.com/download/4/0/9/40920432-3302-47a8-b13c-bbc4848ad114/dotnet-sdk-2.1.302-linux-x64.tar.gz"
 
   if [ ! -f $CACHE_DIR/$ZIP_NAME ]; then
     curl -sSL -o $CACHE_DIR/$ZIP_NAME $LINK
